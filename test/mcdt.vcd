@@ -1,0 +1,213 @@
+$date
+	Tue Mar 22 21:56:09 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module mcdt $end
+$var wire 32 ! ch0_data_i [31:0] $end
+$var wire 1 " ch0_valid_i $end
+$var wire 32 # ch1_data_i [31:0] $end
+$var wire 1 $ ch1_valid_i $end
+$var wire 32 % ch2_data_i [31:0] $end
+$var wire 1 & ch2_valid_i $end
+$var wire 1 ' clk_i $end
+$var wire 1 ( rstn_i $end
+$var wire 1 ) slv2_val_s $end
+$var wire 1 * slv2_req_s $end
+$var wire 32 + slv2_data_s [31:0] $end
+$var wire 1 , slv1_val_s $end
+$var wire 1 - slv1_req_s $end
+$var wire 32 . slv1_data_s [31:0] $end
+$var wire 1 / slv0_val_s $end
+$var wire 1 0 slv0_req_s $end
+$var wire 32 1 slv0_data_s [31:0] $end
+$var wire 1 2 mcdt_val_o $end
+$var wire 2 3 mcdt_id_o [1:0] $end
+$var wire 32 4 mcdt_data_o [31:0] $end
+$var wire 1 5 ch2_ready_o $end
+$var wire 6 6 ch2_margin_o [5:0] $end
+$var wire 1 7 ch1_ready_o $end
+$var wire 6 8 ch1_margin_o [5:0] $end
+$var wire 1 9 ch0_ready_o $end
+$var wire 6 : ch0_margin_o [5:0] $end
+$var wire 1 ; a2s2_ack_s $end
+$var wire 1 < a2s1_ack_s $end
+$var wire 1 = a2s0_ack_s $end
+$scope module inst_arbiter $end
+$var wire 32 > arb_data_o [31:0] $end
+$var wire 2 ? arb_id_o [1:0] $end
+$var wire 1 ' clk_i $end
+$var wire 1 2 data_val_o $end
+$var wire 1 ( rstn_i $end
+$var wire 1 ) slv2_val_i $end
+$var wire 1 * slv2_req_i $end
+$var wire 32 @ slv2_data_i [31:0] $end
+$var wire 1 , slv1_val_i $end
+$var wire 1 - slv1_req_i $end
+$var wire 32 A slv1_data_i [31:0] $end
+$var wire 1 / slv0_val_i $end
+$var wire 1 0 slv0_req_i $end
+$var wire 32 B slv0_data_i [31:0] $end
+$var wire 1 ; a2s2_ack_o $end
+$var wire 1 < a2s1_ack_o $end
+$var wire 1 = a2s0_ack_o $end
+$var reg 32 C arb_data_r [31:0] $end
+$var reg 2 D arb_id_r [1:0] $end
+$var reg 3 E c_state [2:0] $end
+$var reg 1 F data_val_r $end
+$var reg 3 G n_state [2:0] $end
+$upscope $end
+$scope module inst_slva_fifo_0 $end
+$var wire 1 = a2sx_ack_i $end
+$var wire 32 H chx_data_i [31:0] $end
+$var wire 1 " chx_valid_i $end
+$var wire 1 ' clk_i $end
+$var wire 1 I rd_en_s $end
+$var wire 1 ( rstn_i $end
+$var wire 6 J slvx_margin_o [5:0] $end
+$var wire 1 K full_s $end
+$var wire 1 L empty_s $end
+$var wire 6 M data_cnt_s [5:0] $end
+$var reg 1 9 chx_ready_o $end
+$var reg 6 N rd_pointer_r [5:0] $end
+$var reg 32 O slvx_data_o [31:0] $end
+$var reg 1 0 slvx_req_o $end
+$var reg 1 / slvx_val_o $end
+$var reg 6 P wr_pointer_r [5:0] $end
+$scope begin MEM_WRITE $end
+$upscope $end
+$scope begin READ_DATA $end
+$upscope $end
+$scope begin READ_POINTER $end
+$upscope $end
+$scope begin WRITE_POINTER $end
+$upscope $end
+$upscope $end
+$scope module inst_slva_fifo_1 $end
+$var wire 1 < a2sx_ack_i $end
+$var wire 32 Q chx_data_i [31:0] $end
+$var wire 1 $ chx_valid_i $end
+$var wire 1 ' clk_i $end
+$var wire 1 R rd_en_s $end
+$var wire 1 ( rstn_i $end
+$var wire 6 S slvx_margin_o [5:0] $end
+$var wire 1 T full_s $end
+$var wire 1 U empty_s $end
+$var wire 6 V data_cnt_s [5:0] $end
+$var reg 1 7 chx_ready_o $end
+$var reg 6 W rd_pointer_r [5:0] $end
+$var reg 32 X slvx_data_o [31:0] $end
+$var reg 1 - slvx_req_o $end
+$var reg 1 , slvx_val_o $end
+$var reg 6 Y wr_pointer_r [5:0] $end
+$scope begin MEM_WRITE $end
+$upscope $end
+$scope begin READ_DATA $end
+$upscope $end
+$scope begin READ_POINTER $end
+$upscope $end
+$scope begin WRITE_POINTER $end
+$upscope $end
+$upscope $end
+$scope module inst_slva_fifo_2 $end
+$var wire 1 ; a2sx_ack_i $end
+$var wire 32 Z chx_data_i [31:0] $end
+$var wire 1 & chx_valid_i $end
+$var wire 1 ' clk_i $end
+$var wire 1 [ rd_en_s $end
+$var wire 1 ( rstn_i $end
+$var wire 6 \ slvx_margin_o [5:0] $end
+$var wire 1 ] full_s $end
+$var wire 1 ^ empty_s $end
+$var wire 6 _ data_cnt_s [5:0] $end
+$var reg 1 5 chx_ready_o $end
+$var reg 6 ` rd_pointer_r [5:0] $end
+$var reg 32 a slvx_data_o [31:0] $end
+$var reg 1 * slvx_req_o $end
+$var reg 1 ) slvx_val_o $end
+$var reg 6 b wr_pointer_r [5:0] $end
+$scope begin MEM_WRITE $end
+$upscope $end
+$scope begin READ_DATA $end
+$upscope $end
+$scope begin READ_POINTER $end
+$upscope $end
+$scope begin WRITE_POINTER $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx b
+bx a
+bx `
+bx _
+x^
+x]
+bx \
+x[
+bz Z
+bx Y
+bx X
+bx W
+bx V
+xU
+xT
+bx S
+xR
+bz Q
+bx P
+bx O
+bx N
+bx M
+xL
+xK
+bx J
+xI
+bz H
+b0 G
+0F
+bx E
+b11 D
+b11111111111111111111111111111111 C
+bx B
+bx A
+bx @
+b11 ?
+b11111111111111111111111111111111 >
+x=
+x<
+x;
+bx :
+x9
+bx 8
+x7
+bx 6
+x5
+b11111111111111111111111111111111 4
+b11 3
+02
+bx 1
+00
+x/
+bx .
+0-
+x,
+bx +
+0*
+x)
+z(
+z'
+z&
+bz %
+z$
+bz #
+z"
+bz !
+$end
+#1000

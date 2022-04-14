@@ -1,0 +1,8 @@
+'clk_on': mcdt.inst_slva_fifo_2.clk_i
+'rstn_on': mcdt.inst_slva_fifo_2.rstn_i
+'clk_down': !mcdt.inst_slva_fifo_2.clk_i
+'rstn_down': !mcdt.inst_slva_fifo_2.rstn_i
+'both_on' : mcdt.inst_slva_fifo_2.clk_i && mcdt.inst_slva_fifo_2.rstn_i
+'one_on' : mcdt.inst_slva_fifo_2.clk_i || mcdt.inst_slva_fifo_2.rstn_i
+'both_down' : !mcdt.inst_slva_fifo_2.clk_i && !mcdt.inst_slva_fifo_2.rstn_i
+'one_down' : !mcdt.inst_slva_fifo_2.clk_i || !mcdt.inst_slva_fifo_2.rstn_i

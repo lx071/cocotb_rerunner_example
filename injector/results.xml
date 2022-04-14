@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1649168715" />
+    <testcase name="test_empty" classname="wave_rerunner_v2" file="/home/lx/cocotb/my_project_v1/injector/wave_rerunner_v2.py" lineno="284" time="0.28603243827819824" sim_time_ns="905.001" ratio_time="3163.9803004433584" />
+  </testsuite>
+</testsuites>
