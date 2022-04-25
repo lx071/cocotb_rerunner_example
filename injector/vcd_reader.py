@@ -75,7 +75,7 @@ class VcdReader(ReaderBase):
     # 从当前scope(范围)中提取数据
     def extract_scopes(self, vcd_file, current_scope=""):
         while vcd_file:
-            vcd_line = vcd_file.readline()  # 读取一行
+            vcd_line = vcd_file.readline().strip(' ')  # 读取一行
             if vcd_line == "":           # 注：如果是空行，为'\n'
                 return
 
@@ -150,43 +150,48 @@ class VcdReader(ReaderBase):
         
         # 将信号名与vcd文件中字符名，一一对应
         self.sig_name_2_vcd_name[full_sig_name] = vcd_name
-        self.vcd_name_2_sig_name[vcd_name] = full_sig_name        
+
+        if vcd_name not in self.vcd_name_2_sig_name:
+            self.vcd_name_2_sig_name[vcd_name] = []
+
+        self.vcd_name_2_sig_name[vcd_name].append(full_sig_name)
 
     # 从vcd波形文件中提取信号值部分
     def extract_sig_values(self, vcd_file):
         for sig_name in self.sig_name_2_vcd_name.keys():    # 遍历信号名
             self.sigs_values[sig_name] = []                 # 信号值字典    键：信号名   值：列表（时间，信号值）
 
-        dumpvars_found = False
+        # dumpvars_found = False
 
         while vcd_file: 
-            vcd_line = vcd_file.readline()      # 读取一行
+            vcd_line = vcd_file.readline().strip(' ')      # 读取一行
             if vcd_line == "":               # 注：如果是空行，为'\n'
                 return
+            elif vcd_line == "\n":
+                continue
 
-            dumpvars = re.match(self.dumpvars_match, vcd_line)      # 匹配头
+            # dumpvars = re.match(self.dumpvars_match, vcd_line)      # 匹配头
             new_time = re.match(self.new_time_match, vcd_line)      # 匹配时间
             sig_value = re.match(self.sig_value_match, vcd_line)    # 匹配信号值
 
-            if dumpvars:
-                dumpvars_found = True   # 找到dumpvars头,开始匹配信号值
-                current_time = 0        # 时间初始为0
-
-            if not dumpvars_found:      # 没找到dumpvars头
-                continue
+            # if dumpvars:
+            # dumpvars_found = True   # 找到dumpvars头,开始匹配信号值
+            # current_time = 0        # 时间初始为0
 
             if new_time:
                 current_time = new_time.group(1)        # 时间
 
+            if current_time == '123018744':        # 时间
+                pass
             if sig_value:
                 signal_value = sig_value.group(1)       # 信号值（[zx10]+）
                 signal_vcd_name = sig_value.group(2)    # 信号对应的vcd名
                 if signal_vcd_name in self.vcd_name_2_sig_name:
                     # vcd名转信号名
-                    signal_name = self.vcd_name_2_sig_name[signal_vcd_name]
-
-                    # 信号值字典    键：信号名   值：列表（时间，信号值）
-                    self.sigs_values[signal_name].append((int(current_time), signal_value))
+                    signal_name_list = self.vcd_name_2_sig_name[signal_vcd_name]
+                    for signal_name in signal_name_list:
+                        # 信号值字典    键：信号名   值：列表（时间，信号值）
+                        self.sigs_values[signal_name].append((int(current_time), signal_value))
 
                 else:
                     # we currently get here for expended vector signals (i.e. [x[3]])
